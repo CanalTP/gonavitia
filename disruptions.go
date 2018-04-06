@@ -1,4 +1,4 @@
-package responses
+package gonavitia
 
 type Disruption struct {
 	ID                 *string              `json:"id"`

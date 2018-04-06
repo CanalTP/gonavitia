@@ -1,4 +1,4 @@
-package responses
+package gonavitia
 
 type RouteScheduleResponse struct {
 	RouteSchedules []*RouteSchedule `json:"route_schedules,omitempty"`

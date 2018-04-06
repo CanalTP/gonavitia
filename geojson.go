@@ -1,4 +1,4 @@
-package responses
+package gonavitia
 
 type GeoJson struct {
 	Coordinates [][]float64              `json:"coordinates"`

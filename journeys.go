@@ -1,4 +1,4 @@
-package responses
+package gonavitia
 
 type JourneysResponse struct {
 	Journeys []*Journey `json:"journeys"`

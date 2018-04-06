@@ -1,4 +1,4 @@
-package responses
+package gonavitia
 
 import (
 	"fmt"
