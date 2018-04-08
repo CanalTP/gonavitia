@@ -1,8 +1,9 @@
 package gonavitia
 
 type RouteScheduleResponse struct {
-	RouteSchedules []*RouteSchedule `json:"route_schedules,omitempty"`
-	Pagination     *Pagination      `json:"pagination,omitempty"`
+	RouteSchedules []*RouteSchedule `json:"route_schedules"`
+	Pagination     *Pagination      `json:"pagination"`
+	FeedPublishers []*FeedPublisher `json":feed_publisher"`
 	Error          *Error           `json:"error,omitempty"`
 }
 
