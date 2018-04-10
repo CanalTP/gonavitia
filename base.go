@@ -84,3 +84,10 @@ type Address struct {
 	HouseNumber *int32   `json:"house_number,omitempty"`
 	Admins      []*Admin `json:"administrative_regions"`
 }
+
+type FeedPublisher struct {
+	Id      *string `json:"id"`
+	Name    *string `json:"name,omitempty"`
+	Url     *string `json:"url,omitempty"`
+	License *string `json:"licence,omitempty"`
+}
