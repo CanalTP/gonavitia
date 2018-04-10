@@ -3,7 +3,7 @@ package gonavitia
 type RouteScheduleResponse struct {
 	RouteSchedules []*RouteSchedule `json:"route_schedules"`
 	Pagination     *Pagination      `json:"pagination"`
-	FeedPublishers []*FeedPublisher `json":feed_publishers"`
+	FeedPublishers []*FeedPublisher `json:"feed_publishers"`
 	Error          *Error           `json:"error,omitempty"`
 }
 
