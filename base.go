@@ -50,21 +50,24 @@ type StopArea struct {
 	Id         *string      `json:"id"`
 	Name       *string      `json:"name"`
 	Label      *string      `json:"label"`
-	Timezone   *string      `json:"Timezone,omitempty"`
+	Timezone   *string      `json:"timezone,omitempty"`
 	Coord      *Coord       `json:"coord"`
 	Admins     []*Admin     `json:"administrative_regions"`
 	Codes      []*Code      `json:"codes,omitempty"`
 	StopPoints []*StopPoint `json:"stop_points,omitempty"`
+	Links      []*Link      `json:"links"`
 }
 
 type StopPoint struct {
-	Id       *string   `json:"id"`
-	Name     *string   `json:"name"`
-	Label    *string   `json:"label"`
-	Coord    *Coord    `json:"coord"`
-	Admins   []*Admin  `json:"administrative_regions"`
-	Codes    []*Code   `json:"codes,omitempty"`
-	StopArea *StopArea `json:"stop_area,omitempty"`
+	Id         *string   `json:"id"`
+	Name       *string   `json:"name"`
+	Label      *string   `json:"label"`
+	Coord      *Coord    `json:"coord"`
+	Admins     []*Admin  `json:"administrative_regions"`
+	Codes      []*Code   `json:"codes,omitempty"`
+	StopArea   *StopArea `json:"stop_area,omitempty"`
+	Equipments []string  `json:"equipments"`
+	Links      []*Link   `json:"links"`
 }
 
 type Admin struct {
@@ -74,6 +77,7 @@ type Admin struct {
 	Coord   *Coord  `json:"coord"`
 	Insee   *string `json:"insee,omitempty"`
 	ZipCode *string `json:"zip_code,omitempty"`
+	Level   int32   `json:"level"`
 }
 
 type Address struct {

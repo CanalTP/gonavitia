@@ -53,21 +53,6 @@ type Distances struct {
 	Ridesharing int32 `json:"ridesharing"`
 }
 
-type PtDisplayInfo struct {
-	Direction      *string `json:"direction"`
-	Code           *string `json:"code"`
-	Network        *string `json:"network"`
-	Color          *string `json:"color"`
-	Name           *string `json:"name"`
-	PhysicalMode   *string `json:"physical_mode"`
-	Headsign       *string `json:"headsign"`
-	Label          *string `json:"label"`
-	TextColor      *string `json:"text_color"`
-	CommercialMode *string `json:"commercial_mode"`
-	Description    *string `json:"description"`
-	Links          []Link  `json:"links"`
-}
-
 type Amount struct {
 	Value float64 `json:"value"`
 	Unit  string  `json:"unit"`

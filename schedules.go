@@ -21,9 +21,9 @@ type Table struct {
 }
 
 type Header struct {
-	DisplayInfo    *PtDisplayInfo `json:"display_informations"`
-	AdditionalInfo []string       `json:"additional_informations"`
-	Links          []Link         `json:"links"`
+	DisplayInfo     *PtDisplayInfo `json:"display_informations"`
+	AdditionalInfos []string       `json:"additional_informations"`
+	Links           []Link         `json:"links"`
 }
 
 type Row struct {
