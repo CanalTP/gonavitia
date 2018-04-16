@@ -8,6 +8,7 @@ It is generated from these files:
 	type.proto
 	request.proto
 	response.proto
+	stat.proto
 
 It has these top-level messages:
 	Code
@@ -125,6 +126,16 @@ It has these top-level messages:
 	StreetNetworkRoutingMatrix
 	Response
 	NearestStopPoint
+	StatParameter
+	Filter
+	InterpretedParameter
+	StatError
+	StatCoverage
+	StatRequest
+	JourneyRequest
+	StatJourneyResponse
+	StatJourneySection
+	StatInfoResponse
 */
 package pbnavitia
 
