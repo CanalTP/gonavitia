@@ -1,7 +1,9 @@
 package gonavitia
 
 import (
+	"encoding/json"
 	"fmt"
+	"strconv"
 	"time"
 )
 
@@ -39,6 +41,16 @@ func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
 type Coord struct {
 	Lat float64 `json:"lat"`
 	Lon float64 `json:"lon"`
+}
+
+func (c Coord) MarshalJSON() ([]byte, error) {
+	return json.Marshal(&struct {
+		Lat string `json:"lat"`
+		Lon string `json:"lon"`
+	}{
+		Lat: strconv.FormatFloat(c.Lat, 'f', -1, 64),
+		Lon: strconv.FormatFloat(c.Lon, 'f', -1, 64),
+	})
 }
 
 type Code struct {
