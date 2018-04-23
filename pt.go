@@ -16,3 +16,13 @@ type PtDisplayInfo struct {
 	Headsigns      []string `json:"headsigns,omitempty"`
 	Equipments     []string `json:"equipments,omitempty"`
 }
+
+type CommercialMode struct {
+	Id   string `json:"id"`
+	Name string `json:"name"`
+}
+
+type PhysicalMode struct {
+	Id   string `json:"id"`
+	Name string `json:"name"`
+}

@@ -59,27 +59,32 @@ type Code struct {
 }
 
 type StopArea struct {
-	Id         *string      `json:"id"`
-	Name       *string      `json:"name"`
-	Label      *string      `json:"label"`
-	Timezone   *string      `json:"timezone,omitempty"`
-	Coord      *Coord       `json:"coord"`
-	Admins     []*Admin     `json:"administrative_regions"`
-	Codes      []*Code      `json:"codes,omitempty"`
-	StopPoints []*StopPoint `json:"stop_points,omitempty"`
-	Links      []*Link      `json:"links"`
+	Id              *string          `json:"id"`
+	Name            *string          `json:"name"`
+	Label           *string          `json:"label"`
+	Timezone        *string          `json:"timezone,omitempty"`
+	Coord           *Coord           `json:"coord"`
+	Admins          []*Admin         `json:"administrative_regions"`
+	Codes           []*Code          `json:"codes,omitempty"`
+	StopPoints      []*StopPoint     `json:"stop_points,omitempty"`
+	Links           []*Link          `json:"links"`
+	CommercialModes []CommercialMode `json:"commercial_modes,omitempty"`
+	PhysicalModes   []PhysicalMode   `json:"physical_modes,omitempty"`
 }
 
 type StopPoint struct {
-	Id         *string   `json:"id"`
-	Name       *string   `json:"name"`
-	Label      *string   `json:"label"`
-	Coord      *Coord    `json:"coord"`
-	Admins     []*Admin  `json:"administrative_regions"`
-	Codes      []*Code   `json:"codes,omitempty"`
-	StopArea   *StopArea `json:"stop_area,omitempty"`
-	Equipments []string  `json:"equipments"`
-	Links      []*Link   `json:"links"`
+	Id              *string          `json:"id"`
+	Name            *string          `json:"name"`
+	Label           *string          `json:"label"`
+	Coord           *Coord           `json:"coord"`
+	Admins          []*Admin         `json:"administrative_regions"`
+	Codes           []*Code          `json:"codes,omitempty"`
+	StopArea        *StopArea        `json:"stop_area,omitempty"`
+	Equipments      []string         `json:"equipments"`
+	Links           []*Link          `json:"links"`
+	Address         *Address         `json:"address,omitempty"`
+	CommercialModes []CommercialMode `json:"commercial_modes,omitempty"`
+	PhysicalModes   []PhysicalMode   `json:"physical_modes,omitempty"`
 }
 
 type Admin struct {
