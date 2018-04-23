@@ -7,6 +7,12 @@ import (
 	"time"
 )
 
+// nothing to do with https://golang.org/pkg/context/
+type Context struct {
+	Timezone        string          `json:"timezone,omitempty"`
+	CurrentDatetime NavitiaDatetime `json:"current_datetime,omitempty"`
+}
+
 type Place struct {
 	Id           *string    `json:"id"`
 	Name         *string    `json:"name"`
