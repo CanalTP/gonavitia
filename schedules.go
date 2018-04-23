@@ -5,6 +5,7 @@ type RouteScheduleResponse struct {
 	Pagination     *Pagination      `json:"pagination"`
 	FeedPublishers []*FeedPublisher `json:"feed_publishers"`
 	Error          *Error           `json:"error,omitempty"`
+	Exceptions     []struct{}       `json:"exceptions"`
 }
 
 type RouteSchedule struct {
