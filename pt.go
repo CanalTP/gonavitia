@@ -6,7 +6,7 @@ type PtDisplayInfo struct {
 	Network        string   `json:"network"`
 	Color          string   `json:"color"`
 	Name           string   `json:"name"`
-	Label          string   `json:"label"`
+	Label          *string  `json:"label,omitempty"`
 	TextColor      string   `json:"text_color"`
 	CommercialMode string   `json:"commercial_mode"`
 	Links          []Link   `json:"links"`
@@ -14,7 +14,7 @@ type PtDisplayInfo struct {
 	PhysicalMode   *string  `json:"physical_mode,omitempty"`
 	Headsign       *string  `json:"headsign,omitempty"`
 	Headsigns      []string `json:"headsigns,omitempty"`
-	Equipments     []string `json:"equipments,omitempty"`
+	Equipments     []string `json:"equipments"`
 }
 
 type CommercialMode struct {

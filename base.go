@@ -116,5 +116,5 @@ type FeedPublisher struct {
 	Id      *string `json:"id"`
 	Name    *string `json:"name,omitempty"`
 	Url     *string `json:"url,omitempty"`
-	License *string `json:"licence,omitempty"`
+	License *string `json:"license,omitempty"`
 }
