@@ -5,6 +5,11 @@ type RouteScheduleResponse struct {
 	Pagination     *Pagination      `json:"pagination"`
 	FeedPublishers []*FeedPublisher `json:"feed_publishers"`
 	Error          *Error           `json:"error,omitempty"`
+	Context        *Context         `json:"context,omitempty"`
+	Links          []Link           `json:"links,omitempty"`
+	Notes          []struct{}       `json:"notes"`       // Not implemented yet
+	Exceptions     []struct{}       `json:"exceptions"`  // Not implemented yet
+	Disruptions    []struct{}       `json:"disruptions"` // Not implemented yet
 }
 
 type RouteSchedule struct {
