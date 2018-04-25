@@ -33,9 +33,9 @@ type Row struct {
 
 type DateTime struct {
 	//We don't handle time only schedules from calendar
-	DateTime       NavitiaDatetime `json:"date_time"`
-	BaseDateTime   NavitiaDatetime `json:"base_date_time,omitempty"`
-	AdditionalInfo []string        `json:"additional_informations"`
-	DataFreshness  string          `json:"data_freshness"`
-	Links          []Link          `json:"links"`
+	DateTime       NavitiaDatetime  `json:"date_time"`
+	BaseDateTime   *NavitiaDatetime `json:"base_date_time,omitempty"`
+	AdditionalInfo []string         `json:"additional_informations"`
+	DataFreshness  *string          `json:"data_freshness"`
+	Links          []Link           `json:"links"`
 }
