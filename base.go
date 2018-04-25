@@ -39,7 +39,9 @@ type Error struct {
 type NavitiaDatetime time.Time
 
 func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
-	//do your serializing here
+	if time.Time(t).IsZero() {
+		return []byte("\"\""), nil
+	}
 	stamp := fmt.Sprintf("\"%s\"", time.Time(t).Format("20060102T150405"))
 	return []byte(stamp), nil
 }
