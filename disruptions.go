@@ -2,7 +2,7 @@ package gonavitia
 
 type Disruption struct {
 	ID                 *string              `json:"id"`
-	Uri                *string              `json:"id,omitempty"`
+	Uri                *string              `json:"uri,omitempty"`
 	DisruptionUri      *string              `json:"disruption_uri,omitempty"`
 	ImpactID           *string              `json:"impact_id,omitempty"`
 	DisruptionID       *string              `json:"disruption_id,omitempty"`

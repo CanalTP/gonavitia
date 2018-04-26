@@ -31,11 +31,6 @@ type Pagination struct {
 	TotalResult  int32 `json:"total_result"`
 }
 
-type Error struct {
-	Id      *string `json:"id"`
-	Message *string `json:"message"`
-}
-
 type NavitiaDatetime time.Time
 
 func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
