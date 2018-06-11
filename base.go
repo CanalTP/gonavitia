@@ -4,6 +4,7 @@ import (
 	"encoding/json"
 	"fmt"
 	"strconv"
+	"strings"
 	"time"
 )
 
@@ -41,6 +42,18 @@ func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
 	return []byte(stamp), nil
 }
 
+func (t *NavitiaDatetime) UnmarshalJSON(data []byte) error {
+	if len(data) == 0 {
+		return nil
+	}
+	value, err := time.Parse("20060102T150405", strings.Trim(string(data), "\""))
+	if err != nil {
+		return err
+	}
+	*t = NavitiaDatetime(value)
+	return nil
+}
+
 type Coord struct {
 	Lat float64 `json:"lat"`
 	Lon float64 `json:"lon"`
@@ -54,6 +67,27 @@ func (c Coord) MarshalJSON() ([]byte, error) {
 		Lat: strconv.FormatFloat(c.Lat, 'f', -1, 64),
 		Lon: strconv.FormatFloat(c.Lon, 'f', -1, 64),
 	})
+}
+
+func (c *Coord) UnmarshalJSON(data []byte) error {
+	coord := struct {
+		Lat string `json:"lat"`
+		Lon string `json:"lon"`
+	}{}
+	err := json.Unmarshal(data, &coord)
+	if err != nil {
+		return err
+	}
+	c.Lat, err = strconv.ParseFloat(coord.Lat, 64)
+	if err != nil {
+		return err
+	}
+	c.Lon, err = strconv.ParseFloat(coord.Lon, 64)
+	if err != nil {
+		return err
+	}
+
+	return nil
 }
 
 type Code struct {
