@@ -31,7 +31,7 @@ type Pagination struct {
 	TotalResult  int32 `json:"total_result"`
 }
 
-// represent a datetime object from navitia (with it's custom formating)
+// represent a datetime object from navitia (with its custom formating)
 // When unmarshalled from a navitia response the timezone will be lost.
 // In most case navitia response are in the local timezone of the coverage,
 // the "real" timezone can be obtained from the context object at the root of response
@@ -64,21 +64,21 @@ type Coord struct {
 	Lon float64 `json:"lon"`
 }
 
+//represent a coord with lat and lon as string...
+type coordString struct {
+	Lat string `json:"lat"`
+	Lon string `json:"lon"`
+}
+
 func (c Coord) MarshalJSON() ([]byte, error) {
-	return json.Marshal(&struct {
-		Lat string `json:"lat"`
-		Lon string `json:"lon"`
-	}{
+	return json.Marshal(&coordString{
 		Lat: strconv.FormatFloat(c.Lat, 'f', -1, 64),
 		Lon: strconv.FormatFloat(c.Lon, 'f', -1, 64),
 	})
 }
 
 func (c *Coord) UnmarshalJSON(data []byte) error {
-	coord := &struct {
-		Lat string `json:"lat"`
-		Lon string `json:"lon"`
-	}{}
+	coord := &coordString{}
 	err := json.Unmarshal(data, coord)
 	if err != nil {
 		return err
