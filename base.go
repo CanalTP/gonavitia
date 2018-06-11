@@ -91,11 +91,7 @@ func (c *Coord) UnmarshalJSON(data []byte) error {
 		return err
 	}
 	c.Lon, err = strconv.ParseFloat(coord.Lon, 64)
-	if err != nil {
-		return err
-	}
-
-	return nil
+	return err
 }
 
 type Code struct {
