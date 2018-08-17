@@ -31,6 +31,10 @@ type Pagination struct {
 	TotalResult  int32 `json:"total_result"`
 }
 
+// represent a datetime object from navitia (with its custom formating)
+// When unmarshalled from a navitia response the timezone will be lost.
+// In most case navitia response are in the local timezone of the coverage,
+// the "real" timezone can be obtained from the context object at the root of response
 type NavitiaDatetime time.Time
 
 func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
@@ -41,19 +45,53 @@ func (t NavitiaDatetime) MarshalJSON() ([]byte, error) {
 	return []byte(stamp), nil
 }
 
+func (t *NavitiaDatetime) UnmarshalJSON(data []byte) error {
+	//we get the "json" value, with quote, so we remove them
+	data = data[1 : len(data)-1]
+	if len(data) == 0 {
+		return nil
+	}
+	value, err := time.Parse("20060102T150405", string(data))
+	if err != nil {
+		return err
+	}
+	*t = NavitiaDatetime(value)
+	return nil
+}
+
 type Coord struct {
 	Lat float64 `json:"lat"`
 	Lon float64 `json:"lon"`
 }
 
+//represent a coord with lat and lon as string...
+type coordString struct {
+	Lat string `json:"lat"`
+	Lon string `json:"lon"`
+}
+
 func (c Coord) MarshalJSON() ([]byte, error) {
-	return json.Marshal(&struct {
-		Lat string `json:"lat"`
-		Lon string `json:"lon"`
-	}{
+	return json.Marshal(&coordString{
 		Lat: strconv.FormatFloat(c.Lat, 'f', -1, 64),
 		Lon: strconv.FormatFloat(c.Lon, 'f', -1, 64),
 	})
+}
+
+func (c *Coord) UnmarshalJSON(data []byte) error {
+	coord := &coordString{}
+	err := json.Unmarshal(data, coord)
+	if err != nil {
+		return err
+	}
+	if coord == nil {
+		return nil
+	}
+	c.Lat, err = strconv.ParseFloat(coord.Lat, 64)
+	if err != nil {
+		return err
+	}
+	c.Lon, err = strconv.ParseFloat(coord.Lon, 64)
+	return err
 }
 
 type Code struct {
