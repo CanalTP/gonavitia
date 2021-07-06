@@ -15,6 +15,7 @@ type PtDisplayInfo struct {
 	Headsign       *string  `json:"headsign,omitempty"`
 	Headsigns      []string `json:"headsigns,omitempty"`
 	Equipments     []string `json:"equipments"`
+	TripShortName  *string   `json:"trip_short_name"`
 }
 
 type CommercialMode struct {

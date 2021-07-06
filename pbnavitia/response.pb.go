@@ -510,6 +510,7 @@ type PtDisplayInfo struct {
 	Notes            []*Note        `protobuf:"bytes,15,rep,name=notes" json:"notes,omitempty"`
 	Headsigns        []string       `protobuf:"bytes,16,rep,name=headsigns" json:"headsigns,omitempty"`
 	TextColor        *string        `protobuf:"bytes,17,opt,name=text_color,json=textColor" json:"text_color,omitempty"`
+	TripShortName    *string        `protobuf:"bytes,19,opt,name=trip_short_name,json=tripShortName" json:"trip_short_name,omitempty"`
 	XXX_unrecognized []byte         `json:"-"`
 }
 
@@ -549,6 +550,13 @@ func (m *PtDisplayInfo) GetDirection() string {
 func (m *PtDisplayInfo) GetColor() string {
 	if m != nil && m.Color != nil {
 		return *m.Color
+	}
+	return ""
+}
+
+func (m *PtDisplayInfo) GetTripShortName() string {
+	if m != nil && m.TripShortName != nil {
+		return *m.TripShortName
 	}
 	return ""
 }
