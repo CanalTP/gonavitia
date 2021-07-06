@@ -554,6 +554,12 @@ func (m *PtDisplayInfo) GetColor() string {
 	return ""
 }
 
+func (m *PtDisplayInfo) GetTripShortName() string {
+	if m != nil && m.TripShortName != nil {
+		return *m.TripShortName
+	}
+	return ""
+}
 func (m *PtDisplayInfo) GetCommercialMode() string {
 	if m != nil && m.CommercialMode != nil {
 		return *m.CommercialMode
