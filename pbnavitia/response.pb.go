@@ -510,7 +510,7 @@ type PtDisplayInfo struct {
 	Notes            []*Note        `protobuf:"bytes,15,rep,name=notes" json:"notes,omitempty"`
 	Headsigns        []string       `protobuf:"bytes,16,rep,name=headsigns" json:"headsigns,omitempty"`
 	TextColor        *string        `protobuf:"bytes,17,opt,name=text_color,json=textColor" json:"text_color,omitempty"`
-	TripShortName    *string        `protobuf:"bytes,19,opt,name=trip_short_name,json=TripShortName" json:"trip_short_name,omitempty"`
+	TripShortName    *string        `protobuf:"bytes,19,opt,name=trip_short_name,json=tripShortName" json:"trip_short_name,omitempty"`
 	XXX_unrecognized []byte         `json:"-"`
 }
 
@@ -560,6 +560,7 @@ func (m *PtDisplayInfo) GetTripShortName() string {
 	}
 	return ""
 }
+
 func (m *PtDisplayInfo) GetCommercialMode() string {
 	if m != nil && m.CommercialMode != nil {
 		return *m.CommercialMode
